@@ -140,20 +140,20 @@ export default function Home() {
       {/* ── Benefits ─────────────────────────────────────── */}
       <section className="section section--white">
         <div className="container">
-          <div className="grid-2">
+          <div style={{ display: 'grid', gridTemplateColumns: '2fr 3fr', gap: 'clamp(2rem, 5vw, 5rem)', alignItems: 'center' }}>
             <div>
               <p className="eyebrow mb-2">For Everyone</p>
-              <h2 style={{ marginBottom: '1rem' }}>Is SASHX for Me?</h2>
+              <h2 style={{ marginBottom: '1rem', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)' }}>Is SASHX for Me?</h2>
               <div className="divider" />
-              <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '0.85rem' }}>
                 Whether you're young or in your golden years, SASHX is designed for everyone. These gentle yet effective exercises are rehabilitative and the perfect way to maintain a strong, healthy body at any age.
               </p>
-              <h4 style={{ marginBottom: '1rem', fontFamily: 'var(--sans)', fontWeight: 500, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-muted)' }}>
+              <h4 style={{ marginBottom: '1rem', fontFamily: 'var(--sans)', fontWeight: 500, fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-muted)' }}>
                 Experience the Benefits
               </h4>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 {benefits.map((b, i) => (
-                  <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.95rem' }}>
+                  <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.85rem' }}>
                     <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)', flexShrink: 0 }} />
                     {b}
                   </li>
@@ -167,7 +167,7 @@ export default function Home() {
               <img
                 src="/images/home-acronym.png"
                 alt="S - Skeletal  A - Alignment  S - Spinal  H - Health  X - Exercises"
-                style={{ borderRadius: 'var(--radius)', width: '100%', maxWidth: '480px' }}
+                style={{ width: '100%', display: 'block' }}
               />
             </div>
           </div>
