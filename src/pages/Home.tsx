@@ -32,38 +32,54 @@ export default function Home() {
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
       <section style={{
-        minHeight: '92vh',
+        position: 'relative',
+        minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        background: 'linear-gradient(150deg, var(--bg) 40%, var(--accent-pale) 100%)',
-        paddingBlock: 'clamp(5rem, 12vw, 10rem)',
+        overflow: 'hidden',
       }}>
-        <div className="container">
-          <div className="grid-2" style={{ alignItems: 'center' }}>
-            <div className="fade-up">
-              <p className="eyebrow mb-2">Skeletal · Alignment · Spinal · Health · Exercises</p>
-              <h1 style={{ marginBottom: '1.5rem', color: 'var(--text)' }}>
-                Unlock a Healthier,<br />More Vibrant You
-              </h1>
-              <p style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', color: 'var(--text-muted)', marginBottom: '2.5rem', fontWeight: 300 }}>
-                As we age, our bodies naturally lose flexibility, mobility, and alignment. With the SASHX Method, you can reverse this and reclaim the vitality of your youth through small, precise movements.
-              </p>
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <Link to="/book-a-session" className="btn btn-primary">Book a Session</Link>
-                <Link to="/about" className="btn btn-outline">Learn the Method</Link>
-              </div>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <img
-                src="/images/home-logo.png"
-                alt="SASHX — Skeletal Alignment Spinal Health Exercises"
-                style={{
-                  maxWidth: '420px',
-                  width: '100%',
-                  borderRadius: '2px',
-                  opacity: 0.92,
-                }}
-              />
+        {/* Background media — swap <img> for <video autoPlay muted loop playsInline> when ready */}
+        <img
+          src="/images/home-1.jpg"
+          alt=""
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center',
+          }}
+        />
+        {/* Dark overlay so text stays readable */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.38) 60%, rgba(0,0,0,0.62) 100%)',
+        }} />
+
+        {/* Content */}
+        <div className="container" style={{ position: 'relative', zIndex: 1, paddingBlock: 'clamp(6rem, 14vw, 12rem)' }}>
+          <div className="fade-up" style={{ maxWidth: '760px' }}>
+            <p className="eyebrow mb-2" style={{ color: 'rgba(255,255,255,0.75)' }}>
+              Skeletal · Alignment · Spinal · Health · Exercises
+            </p>
+            <h1 style={{ marginBottom: '1.5rem', color: '#fff' }}>
+              Unlock a Healthier,<br />More Vibrant You
+            </h1>
+            <p style={{
+              fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+              color: 'rgba(255,255,255,0.85)',
+              marginBottom: '2.5rem',
+              fontWeight: 300,
+              maxWidth: '600px',
+            }}>
+              As we age, our bodies naturally lose flexibility, mobility, and alignment. With the SASHX Method, you can reverse this and reclaim the vitality of your youth through small, precise movements.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <Link to="/book-a-session" className="btn btn-primary">Book a Session</Link>
+              <Link to="/about" className="btn btn-outline" style={{ borderColor: 'rgba(255,255,255,0.7)', color: '#fff' }}>Learn the Method</Link>
             </div>
           </div>
         </div>
