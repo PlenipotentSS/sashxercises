@@ -1,0 +1,236 @@
+import { Link } from 'react-router-dom'
+
+const testimonials = [
+  {
+    quote: 'After going through the 4 class series and going to my regular masseuse, I have felt better than I have in a very long time.',
+    name: 'Christine Wright',
+    role: 'Bank Manager',
+  },
+  {
+    quote: 'I took the 4 class series and after even the first class I actually felt straighter.',
+    name: 'Chu-Lan Chiong',
+    role: 'Acupuncturist',
+  },
+  {
+    quote: 'After seven months of the SASHX program, I was able to walk up and down stairs, move without fear of falling, and achieve flexibility and strength that can prevent injuries. I can now even run!',
+    name: 'Anne Stevenson',
+    role: 'Founder',
+  },
+]
+
+const benefits = [
+  'Improved Flexibility & Stability',
+  'Enhanced Nerve Flow & Circulation',
+  'Smoother Gait & Increased Coordination',
+  'Pain Reduction or Elimination',
+  'Expanded Breathing Capacity',
+  'Increased Bone Density',
+]
+
+export default function Home() {
+  return (
+    <>
+      {/* ── Hero ─────────────────────────────────────────── */}
+      <section style={{
+        minHeight: '92vh',
+        display: 'flex',
+        alignItems: 'center',
+        background: 'linear-gradient(150deg, var(--bg) 40%, var(--accent-pale) 100%)',
+        paddingBlock: 'clamp(5rem, 12vw, 10rem)',
+      }}>
+        <div className="container">
+          <div className="grid-2" style={{ alignItems: 'center' }}>
+            <div className="fade-up">
+              <p className="eyebrow mb-2">Skeletal · Alignment · Spinal · Health · Exercises</p>
+              <h1 style={{ marginBottom: '1.5rem', color: 'var(--text)' }}>
+                Unlock a Healthier,<br />More Vibrant You
+              </h1>
+              <p style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', color: 'var(--text-muted)', marginBottom: '2.5rem', fontWeight: 300 }}>
+                As we age, our bodies naturally lose flexibility, mobility, and alignment. With the SASHX Method, you can reverse this and reclaim the vitality of your youth through small, precise movements.
+              </p>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <Link to="/book-a-session" className="btn btn-primary">Book a Session</Link>
+                <Link to="/about" className="btn btn-outline">Learn the Method</Link>
+              </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <img
+                src="/images/home-logo.png"
+                alt="SASHX — Skeletal Alignment Spinal Health Exercises"
+                style={{
+                  maxWidth: '420px',
+                  width: '100%',
+                  borderRadius: '2px',
+                  opacity: 0.92,
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Mission strip ────────────────────────────────── */}
+      <section style={{
+        background: 'var(--accent)',
+        paddingBlock: '2.5rem',
+      }}>
+        <div className="container text-center">
+          <p style={{
+            fontFamily: 'var(--serif)',
+            fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)',
+            color: 'var(--white)',
+            fontStyle: 'italic',
+            fontWeight: 300,
+            maxWidth: '72ch',
+            margin: '0 auto',
+          }}>
+            "SASHX helps you understand how to be one with your body. Healthy balance is discovered as the exercises build muscle at the same time they stretch it."
+          </p>
+        </div>
+      </section>
+
+      {/* ── Testimonials ─────────────────────────────────── */}
+      <section className="section section--alt">
+        <div className="container">
+          <div className="text-center mb-4">
+            <p className="eyebrow mb-2">Results</p>
+            <h2>How SASHX Has Helped Others</h2>
+            <div className="divider divider--center" />
+          </div>
+          <div className="grid-3">
+            {testimonials.map((t, i) => (
+              <div key={i} style={{
+                background: 'var(--white)',
+                borderRadius: 'var(--radius)',
+                padding: '2rem',
+                boxShadow: 'var(--shadow)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.25rem',
+              }}>
+                <p style={{ fontFamily: 'var(--serif)', fontSize: '1.05rem', fontStyle: 'italic', color: 'var(--text)', lineHeight: 1.7, flexGrow: 1 }}>
+                  "{t.quote}"
+                </p>
+                <div style={{ borderTop: '1px solid var(--border)', paddingTop: '1rem' }}>
+                  <p style={{ fontWeight: 500, fontSize: '0.88rem' }}>{t.name}</p>
+                  <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', letterSpacing: '0.06em' }}>{t.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Benefits ─────────────────────────────────────── */}
+      <section className="section section--white">
+        <div className="container">
+          <div className="grid-2">
+            <div>
+              <p className="eyebrow mb-2">For Everyone</p>
+              <h2 style={{ marginBottom: '1rem' }}>Is SASHX for Me?</h2>
+              <div className="divider" />
+              <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+                Whether you're young or in your golden years, SASHX is designed for everyone. These gentle yet effective exercises are rehabilitative and the perfect way to maintain a strong, healthy body at any age.
+              </p>
+              <h4 style={{ marginBottom: '1rem', fontFamily: 'var(--sans)', fontWeight: 500, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-muted)' }}>
+                Experience the Benefits
+              </h4>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                {benefits.map((b, i) => (
+                  <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.95rem' }}>
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)', flexShrink: 0 }} />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+              <Link to="/about" className="btn btn-outline mt-4" style={{ display: 'inline-block' }}>
+                Learn More
+              </Link>
+            </div>
+            <div>
+              <img
+                src="/images/home-acronym.png"
+                alt="S - Skeletal  A - Alignment  S - Spinal  H - Health  X - Exercises"
+                style={{ borderRadius: 'var(--radius)', width: '100%', maxWidth: '480px' }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Sessions ─────────────────────────────────────── */}
+      <section className="section section--alt">
+        <div className="container">
+          <div className="text-center mb-4">
+            <p className="eyebrow mb-2">Join Us</p>
+            <h2>Upcoming Sessions</h2>
+            <div className="divider divider--center" />
+            <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem' }}>
+              Besides our regular schedule, we frequently host visiting teachers and speakers.
+            </p>
+          </div>
+          <div className="grid-2" style={{ alignItems: 'stretch', maxWidth: '800px', margin: '0 auto' }}>
+            {[
+              { title: 'Private Sessions', desc: '1h 15m one-on-one session tailored to your exact body needs. We provide all equipment.', img: '/images/book-private.png' },
+              { title: 'Small Groups', desc: '1.5h group session with up to 3 people. Great for shared learning with friends or family.', img: '/images/book-group.png' },
+            ].map((s, i) => (
+              <div key={i} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+                <img src={s.img} alt={s.title} style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }} />
+                <div className="card__body" style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <h3 style={{ fontSize: '1.3rem' }}>{s.title}</h3>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', flexGrow: 1 }}>{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-4">
+            <Link to="/book-a-session" className="btn btn-primary">Session Details</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA Banner ───────────────────────────────────── */}
+      <section style={{
+        padding: 'clamp(4rem, 8vw, 7rem) 0',
+        background: 'linear-gradient(135deg, var(--bg-deep) 0%, var(--accent-pale) 100%)',
+      }}>
+        <div className="container text-center">
+          <h2 style={{ marginBottom: '1rem', maxWidth: '20ch', margin: '0 auto 1rem' }}>
+            Ready to experience how SASHX can change the way you feel?
+          </h2>
+          <div className="divider divider--center" />
+          <Link to="/book-a-session" className="btn btn-primary mt-3" style={{ display: 'inline-block' }}>
+            Book a Session
+          </Link>
+        </div>
+      </section>
+
+      {/* ── Newsletter ───────────────────────────────────── */}
+      <section className="section section--white">
+        <div className="container text-center" style={{ maxWidth: '560px' }}>
+          <p className="eyebrow mb-2">Stay Connected</p>
+          <h2 style={{ marginBottom: '0.75rem' }}>Subscribe to Our Newsletter</h2>
+          <div className="divider divider--center" />
+          <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Sign up to receive news and updates from SASHX.</p>
+          <form style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }} onSubmit={e => e.preventDefault()}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div className="form-group" style={{ margin: 0 }}>
+                <label>First Name</label>
+                <input type="text" placeholder="Anne" />
+              </div>
+              <div className="form-group" style={{ margin: 0 }}>
+                <label>Last Name</label>
+                <input type="text" placeholder="Stevenson" />
+              </div>
+            </div>
+            <div className="form-group" style={{ margin: 0 }}>
+              <label>Email Address</label>
+              <input type="email" placeholder="you@example.com" />
+            </div>
+            <button type="submit" className="btn btn-primary">Sign Up</button>
+          </form>
+        </div>
+      </section>
+    </>
+  )
+}
