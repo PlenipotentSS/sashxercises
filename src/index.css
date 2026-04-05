@@ -255,6 +255,7 @@ p { max-width: 68ch; }
 
 /* ── Misc ─────────────────────────────────────────────────────── */
 .text-center { text-align: center; }
+.text-center p { margin-inline: auto; }
 .text-muted { color: var(--text-muted); }
 .mt-1 { margin-top: 0.5rem; }
 .mt-2 { margin-top: 1rem; }
