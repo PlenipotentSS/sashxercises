@@ -117,6 +117,9 @@ p { max-width: 68ch; }
 @media (max-width: 768px) {
   .grid-2 { grid-template-columns: 1fr; }
   .grid-3 { grid-template-columns: 1fr; }
+  .sashx-benefits-grid { grid-template-columns: 1fr !important; }
+  .sashx-img-col { order: 1 !important; }
+  .sashx-text-col { order: 2 !important; }
 }
 
 /* ── Buttons ─────────────────────────────────────────────────── */

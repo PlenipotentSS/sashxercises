@@ -140,8 +140,8 @@ export default function Home() {
       {/* ── Benefits ─────────────────────────────────────── */}
       <section className="section section--white">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 3fr', gap: 'clamp(2rem, 5vw, 5rem)', alignItems: 'center' }}>
-            <div>
+          <div className="sashx-benefits-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 3fr', gap: 'clamp(2rem, 5vw, 5rem)', alignItems: 'center' }}>
+            <div style={{ order: 2 }} className="sashx-text-col">
               <p className="eyebrow mb-2">For Everyone</p>
               <h2 style={{ marginBottom: '1rem', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)' }}>Is SASHX for Me?</h2>
               <div className="divider" />
@@ -163,7 +163,7 @@ export default function Home() {
                 Learn More
               </Link>
             </div>
-            <div>
+            <div style={{ order: 1 }} className="sashx-img-col">
               <img
                 src="/images/home-acronym.png"
                 alt="S - Skeletal  A - Alignment  S - Spinal  H - Health  X - Exercises"
