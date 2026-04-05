@@ -28,12 +28,13 @@ export default function Nav() {
   useEffect(() => { setOpen(false) }, [pathname])
 
   return (
+    <>
     <header style={{
       position: 'fixed',
       top: 0,
       left: 0,
       right: 0,
-      zIndex: 100,
+      zIndex: 101,
       backgroundColor: scrolled ? 'rgba(244,241,235,0.96)' : 'rgba(244,241,235,0.80)',
       backdropFilter: 'blur(12px)',
       borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
@@ -115,43 +116,6 @@ export default function Nav() {
         </button>
       </nav>
 
-      {/* Mobile drawer */}
-      {open && (
-        <div style={{
-          position: 'fixed',
-          top: '64px',
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'var(--bg)',
-          padding: '2rem 4vw',
-          overflowY: 'auto',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '0.25rem',
-        }}>
-          {links.map(l => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              style={({ isActive }) => ({
-                fontFamily: 'var(--serif)',
-                fontSize: '1.6rem',
-                fontWeight: 400,
-                color: isActive ? 'var(--accent)' : 'var(--text)',
-                padding: '0.6rem 0',
-                borderBottom: '1px solid var(--border)',
-              })}
-            >
-              {l.label}
-            </NavLink>
-          ))}
-          <Link to="/book-a-session" className="btn btn-primary mt-4" style={{ alignSelf: 'flex-start' }}>
-            Book a Session
-          </Link>
-        </div>
-      )}
-
       <style>{`
         @media (max-width: 900px) {
           .nav-desktop { display: none !important; }
@@ -159,5 +123,48 @@ export default function Nav() {
         }
       `}</style>
     </header>
+
+      {/* Mobile drawer — outside <header> to escape its stacking context */}
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 100,
+        background: 'var(--bg)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        overflowY: 'auto',
+        transition: 'opacity 0.3s ease, visibility 0.3s ease',
+        opacity: open ? 1 : 0,
+        visibility: open ? 'visible' : 'hidden',
+        pointerEvents: open ? 'auto' : 'none',
+      }}>
+        {links.map(l => (
+          <NavLink
+            key={l.to}
+            to={l.to}
+            style={({ isActive }) => ({
+              fontFamily: 'var(--serif)',
+              fontSize: 'clamp(1.6rem, 6vw, 2.2rem)',
+              fontWeight: 400,
+              color: isActive ? 'var(--accent)' : 'var(--text)',
+              padding: '0.65rem 0',
+              width: '80vw',
+              textAlign: 'center',
+              borderBottom: '1px solid var(--border)',
+            })}
+          >
+            {l.label}
+          </NavLink>
+        ))}
+        <Link to="/book-a-session" className="btn btn-primary" style={{ marginTop: '2rem' }}>
+          Book a Session
+        </Link>
+      </div>
+    </>
   )
 }
