@@ -207,15 +207,33 @@ export default function Home() {
 
       {/* ── CTA Banner ───────────────────────────────────── */}
       <section style={{
-        padding: 'clamp(4rem, 8vw, 7rem) 0',
-        background: 'linear-gradient(135deg, var(--bg-deep) 0%, var(--accent-pale) 100%)',
+        position: 'relative',
+        padding: 'clamp(6rem, 14vw, 12rem) 0',
+        overflow: 'hidden',
       }}>
-        <div className="container text-center">
-          <h2 style={{ marginBottom: '1rem', maxWidth: '20ch', margin: '0 auto 1rem' }}>
-            Ready to experience how SASHX can change the way you feel?
+        <img
+          src="/images/river.png"
+          alt=""
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center',
+          }}
+        />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'rgba(0,0,0,0.42)',
+        }} />
+        <div className="container text-center" style={{ position: 'relative', zIndex: 1 }}>
+          <h2 style={{ color: '#fff', maxWidth: '22ch', margin: '0 auto 2rem', fontWeight: 300 }}>
+            Interested in experiencing how SASHX can change the way you feel in your body?
           </h2>
-          <div className="divider divider--center" />
-          <Link to="/book-a-session" className="btn btn-primary mt-3" style={{ display: 'inline-block' }}>
+          <Link to="/book-a-session" className="btn btn-primary">
             Book a Session
           </Link>
         </div>
